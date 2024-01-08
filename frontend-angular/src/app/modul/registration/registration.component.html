@@ -1,0 +1,50 @@
+<div class="registration-design">
+    <img class="logo" src="assets/images/web-shop-logo-blue.png" />
+    <h1 class="text-design">Registracija</h1>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+        <mat-form-field style="margin: 2px;">
+            <label>First name</label>
+            <input matInput formControlName="firstName" type="text" >
+        </mat-form-field>
+    
+        <mat-form-field style="margin: 2px;">
+            <label>Last name</label>
+            <input matInput formControlName="lastName" type="text" >
+        </mat-form-field>
+        </div>
+        <div class="form-row">
+        <mat-form-field style="margin: 2px;">
+            <label>City</label>
+            <input matInput formControlName="city" type="text" >
+        </mat-form-field>
+    
+        <mat-form-field style="margin: 2px;">
+            <label>Email</label>
+            <input  matInput formControlName="email" type="email" >
+        </mat-form-field>
+        </div>
+        <div class="form-row">
+        <mat-form-field style="margin: 2px;">
+            <label>Username</label>
+            <input matInput formControlName="username" type="text" >
+        </mat-form-field>
+    
+        <mat-form-field style="margin: 2px;">
+            <label>Password</label>
+            <input matInput formControlName="password" type="password" >
+        </mat-form-field>
+        </div>
+        <div class="last-row">
+        <mat-form-field style="margin: 2px;" > 
+            <label>Confirm password</label>
+            <input matInput formControlName="confirmPassword" type="password" >
+        </mat-form-field>
+        <div class="button-align" >
+            <button mat-button type="submit" style="margin: 2px; color: white;" class="button-design">Submit</button>
+        </div>
+        
+         </div>
+    </form>
+    <label>{{info}}</label>
+</div>

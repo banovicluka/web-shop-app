@@ -1,0 +1,84 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    border: transparent;
+  }
+  
+  .search-container {
+    flex: 4;
+    margin-right: 2px;
+    border: transparent;
+  }
+  
+  .product-grid {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .product-card {
+    width: 100%;
+    
+  }
+  
+  .image-carousel {
+    
+    height: calc(100% - 140px); 
+  }
+  
+  .carousel {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .product-image {
+    width: 500px;
+    height: 500px;
+  }
+
+.title{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.subtitle{
+    font-family:-apple-sxystem, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.content-display{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    
+}
+
+.informatio-display{
+    display: flex;
+    flex-direction: column;
+    margin: 150px;
+}
+
+.information-text{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+}
+
+.button-design{
+    background-color: #3f51b5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 50px;
+    color: white;
+    border-radius: 4px;
+    border-width: 0px;
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 125px;
+}
+
+.label-design{
+    color: white;
+    font-weight: 700;
+}

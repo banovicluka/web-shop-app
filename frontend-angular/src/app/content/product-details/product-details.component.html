@@ -1,0 +1,49 @@
+
+
+<!-- <mat-toolbar color="primary">
+</mat-toolbar>
+<div>
+    <mat-card>
+        <div class="container">
+            <div class="search-container">
+                <mat-form-field>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card>
+</div> -->
+
+
+        <mat-card class="product-card">
+            <mat-card-header style="margin-left: 50px;">
+                <mat-card-title  class="title">{{product?.title}}</mat-card-title>
+                <mat-card-subtitle  class="subtitle">{{product?.categoryName}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="content-display">
+               <div class="image-carousel">
+                <button mat-icon-button (click)="prevImage()">
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+                <img [src]="currentImage?.path" alt="Product Image" class="product-image">
+                <button mat-icon-button (click)="nextImage()">
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
+              </div>
+              <div class="information-display">
+                
+                <p class="information-text">Cijena: {{product?.price}} KM</p>
+                <p class="information-text" *ngIf="product?.unused">Novo</p>
+                <p class="information-text" *ngIf="!product?.unused">Koristeno</p>
+                <p class="information-text" style="font-style:italic; color: gray;">{{product?.userUsername}}</p>
+                <p class="information-text">Lokacija: {{product?.location}}</p>
+                <p class="information-text">Opis: {{product?.description}}</p>
+                <button mat-button *ngIf="this.authService.isLoggedIn() && product?.purchase === null" class="button-design"  (click)="purchaseModal()">Naruci artikal</button>
+                <p *ngIf="product?.purchase !==null" class="information-text" style="font-family: italic">OVAJ ARTIKAL JE KUPLJEN.</p>
+              </div>
+              
+            </mat-card-content>
+        </mat-card>
+    
+
+<app-comments></app-comments>

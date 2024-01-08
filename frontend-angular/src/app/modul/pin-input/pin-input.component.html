@@ -1,0 +1,14 @@
+<div class="pin-page-design">
+    <img class="logo" src="assets/images/web-shop-logo-blue.png" />
+    <h2 class="text-design">Finish Registration</h2>
+    <form (ngSubmit)="onSubmit()" class="form-design">
+      <div>
+        <label for="pin" class="label-design">Enter 4-Digit PIN:</label>
+        <input style="border-width: 3px;" type="text" id="pin" name="pin" [(ngModel)]="pin" maxlength="4" pattern="[0-9]{4}" required>
+      </div>
+      <button mat-button type="submit" class="button-design" style="margin: 5px; color: white;">Finish Registration</button>
+      <button mat-button class="button-design" (click)="navigateToHomePage()" style="margin: 5px;color: white;">Pocetna stranica</button>
+    </form>
+    <label>{{info}}</label>
+    
+</div>

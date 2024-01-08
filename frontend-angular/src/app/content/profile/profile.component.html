@@ -1,0 +1,24 @@
+<mat-tab-group [(selectedIndex)]="service.activeTab" >
+    <mat-tab label="Moj profil" id="tab1">
+        <div class="profile-design">
+            <div class="profile-pic">
+                <img class="circle-image" src="assets/images/profile.jpg">
+                <p class="username">{{this.profileData?.username}}</p>
+            </div>
+            <div class="information-display">
+                <h2 class="text-design">{{this.profileData?.firstName}} {{this.profileData?.lastName}}</h2>
+                <p >Lokacija: {{this.profileData?.city}}</p>
+                <p style="font-style: italic;"> {{this.profileData?.email}}</p>
+            </div>
+            
+            
+            <!-- <img [src]="profileData.avatar" alt="Avatar"> -->
+        </div>
+    </mat-tab>
+    <mat-tab label="Moje ponude" id="tab2">
+        <app-allproducts  [selectedTab]="2"></app-allproducts> 
+    </mat-tab>
+    <mat-tab label="Kupljeni artikli" id="tab3">
+        <app-allproducts  [selectedTab]="3"></app-allproducts>
+    </mat-tab>
+</mat-tab-group>

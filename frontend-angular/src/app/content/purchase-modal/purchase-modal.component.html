@@ -1,0 +1,15 @@
+<div class="content">
+<h2 class="text-design">Izvrsi kupovinu</h2>
+<div class="display">
+<mat-form-field >
+    <mat-label >Izaberi nacin placanja</mat-label>
+    <mat-select [(value)]="option" >
+        <mat-option value="kartica">Karticno placanje</mat-option>
+        <mat-option value="po pouzecu">Placanje po pouzecu</mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<button mat-button (click)="onSave()" class="button-design">Naruci</button>
+<button mat-button (click)="onCancel()" class="button-design">Odustani</button>
+</div></div>

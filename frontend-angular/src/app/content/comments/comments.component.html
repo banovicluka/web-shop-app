@@ -1,0 +1,12 @@
+<div style="margin-left: 50px;">
+<h2 >Komentari</h2>
+<div *ngFor="let comment of comments" class="border-bottom">
+    <p>{{comment.question}}</p>
+    <p *ngIf="comment.answer"> Odgovor: {{comment.answer}}</p>
+    <button mat-button class="button-design" style="color: white;" (click)="openReplyModal(comment.id)" *ngIf="!comment.answer && this.isChecked()">Odgovori</button>
+</div>
+
+<div style="margin-top: 5px;padding: 10px;">
+    <button mat-button class="button-design" style="color: white;"  *ngIf="this.isUserLoggedIn()" (click)="openQuestionModal()" >Postavi pitanje</button>
+</div>
+</div>

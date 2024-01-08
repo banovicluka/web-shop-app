@@ -1,0 +1,28 @@
+<div class="login-design">
+    <img class="logo" src="assets/images/web-shop-logo-blue.png" (click)="navigateOnHome()"/>
+<h1 class="text-design">Prijava</h1>
+<form (ngSubmit)="onSubmit()" class="form-design">
+    
+    <mat-form-field>
+            <mat-label for="username">Username</mat-label>
+            <input matInput type="text" name="username" id="username" [(ngModel)]="username" required> 
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label for="password">Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" name="password" id="password" [(ngModel)]="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+    </mat-form-field>
+     
+    <button mat-button type="submit" class="button-design">
+            <mat-label class="label-design">Prijavi se</mat-label>
+    </button>
+    
+</form>
+<!-- <div>
+    <label> {{loggedUser}}</label>
+</div> -->
+
+</div>

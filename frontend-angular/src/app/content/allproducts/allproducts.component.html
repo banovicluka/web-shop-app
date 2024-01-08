@@ -1,0 +1,101 @@
+<div >
+    <mat-card style="box-shadow: none;">
+        <div class="container">
+            <div class="search-container">
+                <mat-form-field class="mat-form-field">
+                    <input matInput type="search" [(ngModel)]="searchText" (keyup)="getAllProducts()" placeholder="Pretraga" name="search" >
+                    <!-- <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let suggestion of suggestions" [value]="suggestion">
+                        {{ suggestion }}
+                      </mat-option>
+                    </mat-autocomplete> -->
+                </mat-form-field>
+                <!-- <div *ngIf="suggestions.length > 0">
+                  <ul>
+                    <li *ngFor="let suggestion of suggestions">{{suggestion}}</li>
+                  </ul> 
+                </div> -->
+            </div>
+            <div class="button-container">
+                <button mat-icon-button class="mat-icon-button" (click)="openPublishModal()" *ngIf="isProfileRouteActive()">
+                    <mat-icon style="margin-right: 2px;">add_to_photos</mat-icon>
+                    <mat-label style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">Objavi oglas</mat-label>
+                  </button>
+            </div>
+        </div>
+      </mat-card>    
+</div>
+<div class="filter-container">
+    <mat-form-field class="filter-field">
+        <mat-label>Kategorija</mat-label>
+        <mat-select [(ngModel)]="selectedCategory" (selectionChange)="getAllProducts()">
+            <mat-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="divider"></div>
+
+        
+    <mat-form-field class="filter-field">
+        <mat-label>Stanje</mat-label>
+        <mat-select [(ngModel)]="selectedCondition" (selectionChange)="getAllProducts()">
+            <mat-option value="true">Nov</mat-option>
+            <mat-option value="false">Polovan</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="divider"></div>
+    <mat-form-field class="filter-field">
+        <mat-label>Lokacija</mat-label>
+        <mat-select [(ngModel)]="selectedLocation" (selectionChange)="getAllProducts()">
+            <mat-option value="Banja Luka">Banja Luka</mat-option>
+            <mat-option value="Sarajevo">Sarajevo</mat-option>
+            <mat-option value="Bijeljina">Bijeljina</mat-option>
+            <mat-option value="Trebinje">Trebinje</mat-option>
+            <mat-option value="Zenica">Zenica</mat-option>
+        </mat-select>
+    </mat-form-field> 
+    <div class="divider"></div> 
+    <button mat-button class="price-button" [matMenuTriggerFor]="priceFilterMenu">
+        <mat-label class="filter-button-label">
+            Cijena
+        </mat-label>
+    </button>
+          
+        <mat-menu #priceFilterMenu="matMenu" class="price-filter-menu">
+                <form>
+                <mat-form-field class="filter-field">
+                    <input matInput placeholder="From" type="number" name="fromPrice" [(ngModel)]="fromPrice" (click)="$event.stopPropagation()">
+                </mat-form-field>
+                <mat-form-field class="filter-field">
+                    <input matInput placeholder="To" type="number" name="toPrice" [(ngModel)]="toPrice" (click)="$event.stopPropagation()">
+                </mat-form-field>
+                <button mat-button (click)="getAllProducts()" class="apply-button">Apply</button>
+                </form>
+        </mat-menu>        
+  </div>
+  <mat-grid-list cols="5" rowHeight="1:1">
+      <mat-grid-tile class="mat-grid-list"  *ngFor="let card of products" >
+        <mat-card class="example-card" (click)="onCardClick(card.id)">
+            <mat-card-content class="card-content">
+                <div class="image-container">
+                    <div *ngIf="card.images.length > 0">
+                     <img mat-card-lg-image style="max-height: 200px" [src]="card.images[0].path" >
+                    </div>
+                </div>
+                 <div class="details-container">
+                    <mat-card-title class="title">{{card.title}}</mat-card-title>
+                     <mat-card-subtitle class="category">{{card.categoryName}}</mat-card-subtitle>
+                </div>
+                <div class="footer">
+                    <div class="user">{{card.userUsername}}</div>
+                    <div class="price">{{card.price}} KM</div>
+                </div>
+          
+            </mat-card-content>
+      </mat-card></mat-grid-tile>
+  </mat-grid-list>
+  <div class="pagination" *ngIf="checkActiveRoute()" style="margin: 15px;">
+    <button [disabled]="currentPage === 0" (click)="onPageChange(currentPage - 1)">Previous</button>
+    <span>Page {{currentPage + 1}} of {{calculateTotalPages()}}</span>
+    <button [disabled]="checkEndPagination()" (click)="onPageChange(currentPage + 1)">Next</button>
+  </div>
