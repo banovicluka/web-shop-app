@@ -4,3 +4,4 @@ The system architecture is three-tiered. Within the application, a MySQL databas
 
 
 <img width="982" alt="Screen Shot 2024-02-06 at 23 10 07" src="https://github.com/banovicluka/web-shop-app/assets/58904845/46b9c449-8645-484b-bab0-e15b3bd423da">
+
